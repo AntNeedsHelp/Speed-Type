@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+</head>
+<body>
+<h1 id="header">Quick Type</h1>
+
+<div id="page">
+    <div class = "startScreen">
+        <p style="color: #828282" id="backSen">
+            
+        </p>
+        <textarea id="textArea" oninput="printSomething()" style = "color:#dedede; font-family: 'Monaco', 'Courier New', monospace; font-size: 25px; font-weight: bold;" align="top" class = "clearInput" type="text"></textarea>
+        <form action="/sentence" method="POST">
+            <button type="submit" class="button">Get Sentence</button>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- end screen! -->
+
+<div id="page">
+    <div id="endScreen">
+        <div id="stats">
+            <div>WPM:
+                <div id="wpm" class="numbers">0000</div>
+            </div>
+            <div>Accuracy:
+                <div id="acc" class="numbers">0000</div>
+            </div>
+            <div>Raw:
+                <div id="raw" class="numbers">0000</div>
+            </div>
+            <div>Time:
+                <div id="time" class="numbers">0000</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    document.getElementById("textArea").disabled = false;
+    var x = "";
+    var s = '<%=sentence%>';
+
+    var backSen = document.getElementById("backSen");
+
+    for(var i = 0; i < s.length; i++){
+        if(s[i]=="Γ"){
+            s= s.replace("ΓÇÖ", "'");
+        }
+        else if(s[i]=="&"){
+            s= s.replace("&#39;", "'");
+        }
+    }
+
+    for(var i = 0; i < s.length; i++){
+        var div = document.createElement('div');
+        div.id = ''+i;
+        if(s[i]==" "){
+            div.innerHTML = "&nbsp";
+        }
+        else{
+            div.innerHTML = s[i];
+        }
+        backSen.appendChild(div);
+    }
+    console.log(backSen);
+
+
+    var senLength = s.length;
+
+
+    console.log("hey im: " + s);
+
+    var start;
+    var first = true;
+    function printSomething(){
+        if(first){
+            start = new Date().getTime();
+            first = false;
+        }
+        var correct = 0;
+        x = document.getElementById("textArea").value;
+        console.log(": "+x);
+        for(var i = 0; i < x.length;i++){
+
+
+            if(x[i] == s[i]){
+                correct++;
+                document.getElementById(""+i).style.backgroundColor = "#85bb65";
+                document.getElementById(""+i).style.color = "white";
+            }
+            else{
+                document.getElementById(""+i).style.backgroundColor = "#f55d5d";
+                document.getElementById(""+i).style.color = "white";
+            }
+
+        }
+        for(var i = x.length; i < s.length;i++){
+            document.getElementById(""+i).style.color = "#828282";
+            document.getElementById(""+i).style.backgroundColor = "#363636";
+        }
+        if(x.length == s.length){
+            var end = new Date().getTime();
+            var time = (end - start);
+            var mod = time%100;
+            time = (time-mod)/1000;
+            mins = time/60;
+            var percent = Math.round((correct/senLength)*100);
+            var raw = Math.round((senLength/5)/mins);
+            var wpm = Math.round((correct/5)/mins);
+            console.log("WPM: "+wpm)
+            console.log("Accuracy: " +percent);
+            console.log("Raw: "+raw);
+            console.log("Time: "+time);
+            document.getElementById("textArea").disabled = true;
+            document.getElementById("wpm").innerHTML = wpm;
+            document.getElementById("acc").innerHTML = percent+"%";
+            document.getElementById("raw").innerHTML = raw;
+            document.getElementById("time").innerHTML = time+" seconds";
+            //document.location.href = "/endScreen";
+        }
+    }
+
+
+    
+</script>
+<script type = "text/javascript" src="server.js"></script>
+</body>
+</html>

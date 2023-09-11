@@ -1,0 +1,91 @@
+body{
+    font-family: "Monaco", "Courier New", monospace;
+    background-color: #363636;
+    color: #85bb65;
+  }
+#header{
+  color:#dedede;
+  padding-left: 20px;
+  font-size: 40px;
+  font-weight: bold;
+}
+.startScreen{
+  padding-left: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  border-style: dashed;  
+  width: 1200px;
+  height: 355px;
+  position: fixed;
+}
+
+#page{
+  display: flex;
+  justify-content: center;
+}
+
+#username{
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#password{
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  background-color: #85bb65;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  padding: 10px;
+  transition-duration: 0.2s;
+  font-size: 20px;
+}
+.button:hover {
+  background-color: #363636;
+  color: #85bb65;
+  border: 2px solid #85bb65;
+}
+
+.clearInput{
+  background: transparent;
+  border: 2px solid #85bb65;
+}
+
+textarea{
+  box-sizing: border-box;
+  height: 165px;
+  width:1180px;
+}
+
+input{
+  background: transparent;
+}
+
+#backSen{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+#stats{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: bold;
+  font-size: 50px;
+}
+.numbers{
+  padding-top: 40px;
+  color:#85bb65;
+  font-size: 60px;
+  
+}
+#endScreen{
+  position:absolute;
+  width:1200px;
+  height: 355px;
+  top:500px;
+}

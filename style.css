@@ -1,0 +1,119 @@
+body{
+  font-family: "Monaco", "Courier New", monospace;
+  background-color: #363636;
+  color: #828282;
+}
+#header{
+  color:#dedede;
+  padding-left: 20px;
+  font-size: 40px;
+  font-weight: bold;
+}
+.startScreen{
+  padding-left: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  border-style: dashed;  
+  width: 800px;
+  height: 350px;
+  position: fixed;
+}
+#page{
+  display: flex;
+  justify-content: center;
+}
+#username{
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#password{
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#usernameinput{
+  padding-top: 10px;
+  width: 80%;
+  color: #828282;
+}
+#passwordinput{
+  padding-top: 10px;
+  width: 80%;
+}
+#username0{
+  font-size: 30px;
+}
+
+#password0{
+  font-size: 30px;
+}
+.button{
+  background-color: #fcba03;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  padding: 10px;
+  transition-duration: 0.2s;
+  font-size: 20px;
+}
+.button:hover {
+  background-color: #363636;
+  color: #fcba03;
+  border: 2px solid #fcba03;
+}
+#loginButtons{
+  padding-left: 400px;
+}
+.primary-button{
+  background-color: #ff8000;
+}
+.primary-button:hover {
+  background-color: #363636;
+  color: #ff8000;
+  border: 2px solid #ff8000;
+}
+
+
+/*
+#sentence-container{
+  position: relative;
+  border: 2px solid #ff8000;
+}
+
+#sentence{
+  position: absolute;
+  top: 0;
+  left:0;
+}
+#sentence-input{
+  position: absolute;
+  top: 0;
+  left:0;
+}
+*/
+
+
+
+#sentence-container {
+}
+
+#sentence {
+  display: grid;
+  grid-template-columns: 1000px 1fr;
+  grid-template-rows: 0px 1fr;
+}
+
+#sentence-input {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.incorrect_char {
+  color: red;
+  text-decoration: underline;
+}
+
+.correct_char {
+  color: darkgreen;
+}
