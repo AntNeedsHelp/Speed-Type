@@ -7,7 +7,7 @@ Features user accounts with saved stats, guest mode, and real-time typing analys
 ## 📸 Screenshots
 ![Sign In Screen](readmeimages\sign-up-screen.png)
 ![Typing Test](readmeimages\end-screen.png)
-![DB Example]([readmeimages\db-example.png](https://github.com/AntNeedsHelp/Speed-Type/blob/main/readmeimages/db-example.png))    
+![DB Example](https://github.com/AntNeedsHelp/Speed-Type/blob/main/readmeimages/db-example.png)    
 
 ---
 
@@ -35,4 +35,5 @@ git clone https://github.com/yourusername/speed-type.git
 cd main
 npm install
 npm start
+
 
